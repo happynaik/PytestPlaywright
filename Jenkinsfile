@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Checkout Code'){
             steps{
-            git branch 'main',url:'https://github.com/happynaik/PytestPlaywright.git'
+            git branch 'main', url:'https://github.com/happynaik/PytestPlaywright.git'
             }
         }
         stage('SetUp Python & Dependencies'){
@@ -18,8 +18,7 @@ pipeline{
                     steps {
                         sh 'source venv/bin/activate && pytest tests/ --browser chromium --html=playwright-report/report.html --self-contained-html'
                     }
-                }
-
+        }
         stage('Archive Playwright Reports') {
             steps {
                 archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true

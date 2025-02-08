@@ -12,8 +12,8 @@ pipeline {
             steps {
                 sh 'python3 -m venv venv'  // Create a virtual environment
                 sh 'source venv/bin/activate && pip install --upgrade pip'
-                sh 'source venv/bin/activate && pip install pytest pytest-playwright'
-                sh 'source venv/bin/activate && playwright install'
+                sh 'source venv/bin/activate && pip install pytest pytest-playwright pytest-html'
+                sh 'source venv/bin/activate && playwright install'  // Install browsers
             }
         }
 
